@@ -186,12 +186,10 @@ def main() :
 
 
         st.subheader("REVENU (EN €)")
-        st.write("REVENU TOTAL : {:.0f}".format(infos_client["AMT_INCOME_TOTAL"].values[0]))
-        st.write("MONTANT DU CREDIT : {:.0f}".format(infos_client["AMT_CREDIT"].values[0]))
-        st.write("ANNUITE DU CREDIT : {:.0f}".format(infos_client["AMT_ANNUITY"].values[0]))
-        #st.write("MONTANT DU BIEN POUR LE CREDIT : {:.0f}".format(infos_client["AMT_GOODS_PRICE"].values[0]))
-
-
+        st.write("**REVENU TOTAL :** {:.0f}".format(infos_client["AMT_INCOME_TOTAL"].values[0]))
+        st.write("**MONTANT DU CREDIT :** {:.0f}".format(infos_client["AMT_CREDIT"].values[0]))
+        st.write("**ANNUITE DU CREDIT :** {:.0f}".format(infos_client["AMT_ANNUITY"].values[0]))
+      
         #Income distribution plot
         data_income = load_income_population(data)
         fig, ax = plt.subplots(figsize=(10, 5))
@@ -231,8 +229,6 @@ def main() :
        nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
        similar_id = load_neighbors(X_test,nbligne)
        st.write( "", similar_id)
-       #st.write( "", int(chk_id))
-        #st.write( "", "ok")
     else:
         st.markdown("<i>…</i>", unsafe_allow_html=True)        
     
