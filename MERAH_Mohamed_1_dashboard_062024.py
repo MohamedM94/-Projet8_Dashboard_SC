@@ -151,9 +151,9 @@ def main() :
             st.write("**SEXE : **", 'Homme') 
             
         if(infos_client["CODE_GENDER"].values[0] == 1.0) :
-            st.write("**SEXE : **", 'Femme')  
+            st.write("**SEXE** : ", 'Femme')  
             
-        st.write("**AGE :** {:.0f} ans".format(int(infos_client["DAYS_BIRTH"]/-1)))
+        st.write("**AGE** :{:.0f} ans".format(int(infos_client["DAYS_BIRTH"]/-1)))
         
         if(infos_client["NAME_FAMILY_STATUS_Civil marriage"].values[0] == 1.0) :
             st.write("**SITUATION DE FAMILLE : **", 'Civil marriage')
