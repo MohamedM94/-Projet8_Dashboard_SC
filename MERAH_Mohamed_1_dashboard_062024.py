@@ -118,7 +118,7 @@ def main() :
     st.sidebar.header("**INFORMATION GENERALE**")
 
     #Loading selectbox
-    chk_id = st.sidebar.selectbox("Client ID", id_client)
+    chk_id = st.sidebar.selectbox("**Client ID**", id_client)
 
 
     #Loading general info
@@ -131,11 +131,11 @@ def main() :
     st.sidebar.text(nb_credits)
 
     #Average income
-    st.sidebar.markdown("<u>REVENU MOYEN DATA:</u>", unsafe_allow_html=True)
+    st.sidebar.markdown("<u>**REVENU MOYEN DATA:**</u>", unsafe_allow_html=True)
     st.sidebar.text(rev_moy)
 
     #AMT CREDIT
-    st.sidebar.markdown("<u>MONTANT MOYEN DU CREDIT DATA :</u>", unsafe_allow_html=True)
+    st.sidebar.markdown("<u>**MONTANT MOYEN DU CREDIT DATA :**</u>", unsafe_allow_html=True)
     st.sidebar.text(credits_moy)
     
     # HOME PAGE - MAIN CONTENT
@@ -144,7 +144,7 @@ def main() :
     #Customer information display : Customer Gender, Age, Family status, Children, …
     st.header(" INFORMATION CLIENT SELECTIONNE ")
 
-    if st.checkbox("AFFICHER LES INFORMATIONS SUR LE CLIENT ?",key="option1"):
+    if st.checkbox("**AFFICHER LES INFORMATIONS SUR LE CLIENT ?**",key="option1"):
         infos_client = identite_client(data, chk_id)
         
         if(infos_client["CODE_GENDER"].values[0] == 0.0) :
