@@ -205,7 +205,7 @@ def main() :
     st.write("**STATUT DU CLIENT :**",statut)
  
 #Feature importance / description
-    if st.checkbox("**AFFICHER LES RESULTATS SUR LE CLIENT ?**",key="Option4"):
+    if st.checkbox("**AFFICHER LES RESULTATS SUR LE CLIENT ?**",key="Option2"):
         nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
         fig, ax = plt.subplots(figsize=(10, 10))
         explainer = shap.Explainer(clf)
@@ -218,6 +218,18 @@ def main() :
         st.markdown("<i>…</i>", unsafe_allow_html=True)   
 
 
+#Feature importance / description
+    if st.checkbox("**INFORMATION COMPLÉMENTAIRES ?**",key="Option2"):
+        nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
+        fig, ax = plt.subplots(figsize=(10, 10))
+        explainer = shap.Explainer(clf)
+        shap_values = explainer.shap_values(X_test)
+        shap_vals = explainer(X_test)
+        shap.waterfall_plot(shap_vals[nbligne][:, 0],show = False)
+        st.pyplot(fig)
+        
+    else:
+        st.markdown("<i>…</i>", unsafe_allow_html=True)  
     
 #Feature importance / description
     if st.checkbox("**Affichage des dossiers similaires ?**",key="Option3"):
