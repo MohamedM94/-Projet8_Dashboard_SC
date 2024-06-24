@@ -206,16 +206,10 @@ def main() :
     
     
 #Feature importance / description
-    if st.checkbox("**INFORMATION COMPLÉMENTAIRES ?**",key="Option3"):
-        st.write(""" Le retour de l'API de prédiction donne un score entre 0 et 100% qui représente la probabilité de refus de prêt.  \n"""
-            """ Trois cas de figure sont alors possibles:  \n """
-            """ 1) Le score est en dessous de 50% → la demande de prêt est acceptée.  \n """
-            """ 2) Le score est entre 50 et 53% → la demande de prêt est refusée 
-            mais peut être discutée avec le conseiller pour éventuellement l'accepter 
-            (grâce notamment a l'onglet 'analyse des features clients').  \n"""
-            """3) Le score est au dessus de 53% → la demande de prêt est refusée. """)
+ if st.checkbox("**INFORMATION COMPLÉMENTAIRES ?**",key="Option3"):
+        st.write("**ok")
         
-    else:
+ else:
         st.markdown("<i>…</i>", unsafe_allow_html=True)    
     
 
