@@ -87,10 +87,10 @@ def main() :
         y_pred_lgbm_proba_df=y_pred_lgbm_proba_df[y_pred_lgbm_proba_df['SK_ID_CURR']==int(chk_id)]
         prediction=y_pred_lgbm_proba_df.iat[0,1]
         
-        if y_pred_lgbm_proba_df.iat[0,1]*100>51 : 
-            statut="Client risqué" 
+        if y_pred_lgbm_proba_df.iat[0,1]*100>53 : 
+            statut="Demande de prêt refusée!" 
         else :
-            statut="Client non risqué"
+            statut="Demande de prêt acceptée!"
         return prediction,statut
 
     
@@ -204,7 +204,7 @@ def main() :
     #Customer solvability display
     st.header(" ANALYSE CREDIT DEMANDE ")
     prediction,statut = load_prediction(sample,X_test, chk_id, clf)
-    st.write("**PROBABILITÉ DE REMBOURSEMENT :** {:.0f} %".format(round(float(prediction)*100, 2)))
+    st.write("**Probabilité de défauts de remboursement :** {:.0f} %".format(round(float(prediction)*100, 2)))
     st.write("**STATUT DU CLIENT :**",statut)
     
     
