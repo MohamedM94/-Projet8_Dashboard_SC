@@ -206,12 +206,12 @@ def main() :
     #Customer solvability display
     st.header(" ANALYSE CREDIT DEMANDE ")
     prediction,statut = load_prediction(sample,X_test, chk_id, clf)
-    st.write(" PROBABLITE DE DEFAUT : {:.0f} %".format(round(float(prediction)*100, 2)))
-    st.write("STATUT DU CLIENT : ",statut)
+    st.write("**PROBABILITÉ DE REMBOURSEMENT :** {:.0f} %".format(round(float(prediction)*100, 2)))
+    st.write("**STATUT DU CLIENT :**",statut)
     
     
 #Feature importance / description
-    if st.checkbox("AFFICHER LES RESULTATS SUR LE CLIENT ?",key="Option2"):
+    if st.checkbox("**AFFICHER LES RESULTATS SUR LE CLIENT ?**",key="Option2"):
         nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
         fig, ax = plt.subplots(figsize=(10, 10))
         explainer = shap.Explainer(clf)
@@ -225,7 +225,7 @@ def main() :
     
 
 #Feature importance / description
-    if st.checkbox("Affichage des dossiers similaires ?",key="Option3"):
+    if st.checkbox("**Affichage des dossiers similaires ?**",key="Option3"):
 
        #idn= X_test.loc[X_test['SK_ID_CURR'] == int(chk_id)].index.item()
        nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
