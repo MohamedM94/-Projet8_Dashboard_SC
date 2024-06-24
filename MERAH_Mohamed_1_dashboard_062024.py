@@ -201,7 +201,7 @@ def main() :
     #Customer solvability display
     st.header(" ANALYSE CREDIT DEMANDE ")
     prediction,statut = load_prediction(sample,X_test, chk_id, clf)
-    st.write("**Probabilité de défauts de remboursement :** {:.0f} %".format(round(float(prediction)*100, 2)))
+    st.write("**Probabilité de défauts de remboursement :** {:.0f} %".format(round(float(1-prediction)*100, 2)))
     st.write("**STATUT DU CLIENT :**",statut)
  
 #Feature importance / description
