@@ -203,16 +203,7 @@ def main() :
     prediction,statut = load_prediction(sample,X_test, chk_id, clf)
     st.write("**Probabilité de défauts de remboursement :** {:.0f} %".format(round(float(prediction)*100, 2)))
     st.write("**STATUT DU CLIENT :**",statut)
-    
-    
-#Feature importance / description
- if st.checkbox("**INFORMATION COMPLÉMENTAIRES ?**",key="Option3"):
-        st.write("**ok")
-        
- else:
-        st.markdown("<i>…</i>", unsafe_allow_html=True)    
-    
-
+ 
 #Feature importance / description
     if st.checkbox("**AFFICHER LES RESULTATS SUR LE CLIENT ?**",key="Option4"):
         nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
