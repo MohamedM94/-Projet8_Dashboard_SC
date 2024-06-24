@@ -219,7 +219,7 @@ def main() :
 
 
 #Feature importance / description
-    if st.checkbox("**INFORMATION COMPLÉMENTAIRES ?**",key="Option2"):
+    if st.checkbox("**INFORMATION COMPLÉMENTAIRES ?**",key="Option3"):
         nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
         fig, ax = plt.subplots(figsize=(10, 10))
         explainer = shap.Explainer(clf)
@@ -232,7 +232,7 @@ def main() :
         st.markdown("<i>…</i>", unsafe_allow_html=True)  
     
 #Feature importance / description
-    if st.checkbox("**Affichage des dossiers similaires ?**",key="Option3"):
+    if st.checkbox("**Affichage des dossiers similaires ?**",key="Option4"):
 
        #idn= X_test.loc[X_test['SK_ID_CURR'] == int(chk_id)].index.item()
        nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
