@@ -127,7 +127,7 @@ def main() :
 
     ### Display of information in the sidebar ###
     #Number of loans in the sample
-    st.sidebar.markdown("<u>NOMBRE DE CREDIT :</u>", unsafe_allow_html=True)
+    st.sidebar.markdown("<u>**NOMBRE DE CREDIT :**</u>", unsafe_allow_html=True)
     st.sidebar.text(nb_credits)
 
     #Average income
