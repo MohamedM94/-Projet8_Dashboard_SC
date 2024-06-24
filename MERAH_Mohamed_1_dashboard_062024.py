@@ -206,7 +206,21 @@ def main() :
     
     
 #Feature importance / description
-    if st.checkbox("**AFFICHER LES RESULTATS SUR LE CLIENT ?**",key="Option2"):
+    if st.checkbox("**INFORMATION COMPLÉMENTAIRES ?**",key="Option3"):
+        st.write(""" Le retour de l'API de prédiction donne un score entre 0 et 100% qui représente la probabilité de refus de prêt.  \n"""
+            """ Trois cas de figure sont alors possibles:  \n """
+            """ 1) Le score est en dessous de 50% → la demande de prêt est acceptée.  \n """
+            """ 2) Le score est entre 50 et 53% → la demande de prêt est refusée 
+            mais peut être discutée avec le conseiller pour éventuellement l'accepter 
+            (grâce notamment a l'onglet 'analyse des features clients').  \n"""
+            """3) Le score est au dessus de 53% → la demande de prêt est refusée. """)
+        
+    else:
+        st.markdown("<i>…</i>", unsafe_allow_html=True)    
+    
+
+#Feature importance / description
+    if st.checkbox("**AFFICHER LES RESULTATS SUR LE CLIENT ?**",key="Option4"):
         nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
         fig, ax = plt.subplots(figsize=(10, 10))
         explainer = shap.Explainer(clf)
@@ -216,9 +230,10 @@ def main() :
         st.pyplot(fig)
         
     else:
-        st.markdown("<i>…</i>", unsafe_allow_html=True)    
-    
+        st.markdown("<i>…</i>", unsafe_allow_html=True)   
 
+
+    
 #Feature importance / description
     if st.checkbox("**Affichage des dossiers similaires ?**",key="Option3"):
 
