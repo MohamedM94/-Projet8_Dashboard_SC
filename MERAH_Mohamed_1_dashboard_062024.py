@@ -220,14 +220,13 @@ def main() :
 
 #Feature importance / description
     if st.checkbox("**INFORMATION COMPLÉMENTAIRES ?**",key="Option3"):
-        nbligne=sample.loc[sample['SK_ID_CURR'] == int(chk_id)].index.item()
-        fig, ax = plt.subplots(figsize=(10, 10))
-        explainer = shap.Explainer(clf)
-        shap_values = explainer.shap_values(X_test)
-        shap_vals = explainer(X_test)
-        shap.waterfall_plot(shap_vals[nbligne][:, 0],show = False)
-        st.pyplot(fig)
-        
+        st.write(""" Le retour de l'API de prédiction donne un score entre 0 et 100% qui représente la probabilité de refus de prêt.  \n"""
+        """ Trois cas de figure sont alors possibles:  \n """
+        """ 1) Le score est en dessous de 50% → la demande de prêt est acceptée.  \n """
+        """ 2) Le score est entre 50 et 53% → la demande de prêt est refusée 
+        mais peut être discutée avec le conseiller pour éventuellement l'accepter 
+        (grâce notamment a l'onglet 'analyse des features clients').  \n"""
+        """3) Le score est au dessus de 53% → la demande de prêt est refusée. """) 
     else:
         st.markdown("<i>…</i>", unsafe_allow_html=True)  
     
