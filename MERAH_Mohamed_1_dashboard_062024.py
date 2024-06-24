@@ -93,9 +93,6 @@ def main() :
             statut="Demande de prêt acceptée!"
         return prediction,statut
 
-    
-    
-    
     #Loading data……
     sample, target,data,X_test = load_data()
     id_client = sample[['SK_ID_CURR']].values
